@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For My Love Siva ❤️</title>
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff4e75, #ff9a9e);
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+.container {
+    margin-top: 80px;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 45px;
+}
+
+p {
+    font-size: 20px;
+    width: 70%;
+    margin: auto;
+    line-height: 1.6;
+}
+
+button {
+    padding: 15px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 15px;
+    transition: 0.3s;
+}
+
+#yes1, #yes2 {
+    background: white;
+    color: #ff4e75;
+}
+
+#proposal {
+    display: none;
+    margin-top: 40px;
+}
+
+#celebration {
+    display: none;
+    font-size: 28px;
+    margin-top: 30px;
+}
+
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    top: 0;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Happy Valentine's Day ❤️</h1>
+
+    <p>
+        Even though we are miles apart, my heart belongs only to you, Siva.  
+        Today I have something very important to ask you... 💕
+    </p>
+
+    <button onclick="showProposal()">Click Here 💌</button>
+
+    <div id="proposal">
+        <h2>Siva, will you be my forever Valentine? 💍❤️</h2>
+        <button id="yes1" onclick="celebrate()">YES 💖</button>
+        <button id="yes2" onclick="celebrate()">YES (Obviously 😌)</button>
+    </div>
+
+    <div id="celebration">
+        YAYYYYYY ❤️🎉  
+        You are officially stuck with me forever 😘💕  
+        I love you more than words can explain 🥰
+    </div>
+</div>
+
+<script>
+function showProposal() {
+    document.getElementById("proposal").style.display = "block";
+}
+
+function celebrate() {
+    document.getElementById("celebration").style.display = "block";
+    createConfetti();
+}
+
+function createConfetti() {
+    for (let i = 0; i < 150; i++) {
+        let confetti = document.createElement("div");
+        confetti.classList.add("confetti");
+        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.backgroundColor = randomColor();
+        confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+            confetti.remove();
+        }, 5000);
+    }
+}
+
+function randomColor() {
+    const colors = ["#ff4e75", "#ffffff", "#ffd700", "#ff9a9e", "#ff66b2"];
+    return colors[Math.floor(Math.random() * colors.length)];
+}
+</script>
+
+</body>
+</html>
